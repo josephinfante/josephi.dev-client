@@ -1,9 +1,15 @@
+import { ThemeToggle } from "./components/theme/theme-toggle";
+import { ThemeProvider } from "./components/theme/theme.provider";
+
 export function App() {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="font-medium">Hello World</div>
-    </div>
-  )
+    <ThemeProvider defaultTheme="system" storageKey="josephi.dev-ui-theme">
+      <main>
+        <p>HOLA MUNDO</p>
+        <ThemeToggle />
+      </main>
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;
