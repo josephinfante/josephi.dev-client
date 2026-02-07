@@ -16,7 +16,8 @@ type ContributionsResponse = {
   data: ContributionsPayload;
 };
 
-const ENDPOINT = "http://localhost:3001/github/contributions";
+const API_BASE = (import.meta.env.API ?? '').trim().replace(/\/+$/, '');
+const ENDPOINT = `${API_BASE}/github/contributions`;
 
 export const useGitHubContributions = () => {
   const [data, setData] = useState<ContributionsPayload | null>(null);

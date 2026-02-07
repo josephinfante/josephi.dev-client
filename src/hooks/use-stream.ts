@@ -84,7 +84,8 @@ export type SteamRecentItem = {
   playtimeForeverMs: number;
 };
 
-const STREAM_URL = 'http://localhost:3001/presence/stream';
+const API_BASE = (import.meta.env.API ?? '').trim().replace(/\/+$/, '');
+const STREAM_URL = `${API_BASE}/presence/stream`;
 
 export const useStream = () => {
   const [music, setMusic] = useState<Music | null>(null);
